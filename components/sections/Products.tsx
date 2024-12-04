@@ -12,7 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -94,15 +100,16 @@ export default function Products() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="max-w-xs"
           />
-          <Select
-            value={selectedCategory}
-            onValueChange={setSelectedCategory}
-            className="max-w-xs"
-          >
-            <option value="all">All Categories</option>
-            <option value="Whole Spices">Whole Spices</option>
-            <option value="Ground Spices">Ground Spices</option>
-            <option value="Blends">Blends</option>
+          <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+            <SelectTrigger className="max-w-xs">
+              <SelectValue placeholder="Select a category" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Categories</SelectItem>
+              <SelectItem value="Whole Spices">Whole Spices</SelectItem>
+              <SelectItem value="Ground Spices">Ground Spices</SelectItem>
+              <SelectItem value="Blends">Blends</SelectItem>
+            </SelectContent>
           </Select>
         </div>
 
