@@ -81,23 +81,28 @@ export default function Products() {
   });
 
   return (
-    <section className="py-24">
+    <section className="py-12 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             Our Featured Products
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8">
             Discover our selection of premium Indian spices, carefully curated
             for authentic flavors.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="text-lg" asChild>
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <Button size="lg" className="text-base sm:text-lg" asChild>
               <Link href="/products">
                 Explore Products <span className="ml-2">→</span>
               </Link>
             </Button>
-            <Button variant="secondary" size="lg" className="text-lg" asChild>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="text-base sm:text-lg"
+              asChild
+            >
               <Link href="/about">Learn More</Link>
             </Button>
           </div>
@@ -108,10 +113,10 @@ export default function Products() {
             placeholder="Search products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="max-w-xs"
+            className="w-full sm:max-w-xs"
           />
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="max-w-xs">
+            <SelectTrigger className="w-full sm:max-w-xs">
               <SelectValue placeholder="Select a category" />
             </SelectTrigger>
             <SelectContent>
@@ -123,13 +128,13 @@ export default function Products() {
           </Select>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {filteredProducts.map((product, index) => (
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <div className="relative h-48">
+              <div className="relative h-40 sm:h-48">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -139,16 +144,20 @@ export default function Products() {
                     e.currentTarget.src = "/fallback-spice-image.jpg";
                   }}
                 />
-                <Badge className="absolute top-4 right-4">
+                <Badge className="absolute top-2 right-2 sm:top-4 sm:right-4">
                   {product.badge}
                 </Badge>
               </div>
               <CardHeader>
-                <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.description}</CardDescription>
+                <CardTitle className="text-lg sm:text-xl">
+                  {product.name}
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base">
+                  {product.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-2xl font-bold text-primary">
+                <p className="text-xl sm:text-2xl font-bold text-primary">
                   {product.price}
                 </p>
               </CardContent>
@@ -160,14 +169,14 @@ export default function Products() {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-8 sm:py-12">
             <p className="text-gray-500">
               No products found matching your criteria.
             </p>
           </div>
         )}
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <Link href="/products">
             <Button size="lg" variant="secondary">
               View All Products
