@@ -32,8 +32,9 @@ export default function Hero() {
             Explore Products
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button size="lg" variant="outline" className="text-lg text-white">
+          <Button size="lg" className="text-lg text-black bg-white">
             Learn More
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>
       </div>

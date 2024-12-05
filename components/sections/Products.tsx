@@ -87,10 +87,20 @@ export default function Products() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Our Featured Products
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             Discover our selection of premium Indian spices, carefully curated
             for authentic flavors.
           </p>
+          <div className="flex justify-center gap-4">
+            <Button size="lg" className="text-lg" asChild>
+              <Link href="/products">
+                Explore Products <span className="ml-2">→</span>
+              </Link>
+            </Button>
+            <Button variant="secondary" size="lg" className="text-lg" asChild>
+              <Link href="/about">Learn More</Link>
+            </Button>
+          </div>
         </div>
 
         <div className="mb-8 flex flex-col sm:flex-row gap-4">
@@ -159,7 +169,7 @@ export default function Products() {
 
         <div className="text-center mt-12">
           <Link href="/products">
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="secondary">
               View All Products
             </Button>
           </Link>
